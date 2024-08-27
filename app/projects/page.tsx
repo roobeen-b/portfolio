@@ -1,7 +1,17 @@
-import React from "react";
+"use client";
 
+import { motion } from "framer-motion";
 const ProjectsPage = () => {
-  return <div>ProjectsPage</div>;
+  return (
+    <motion.div
+      className="h-full"
+      initial={{ y: "-200vh" }}
+      animate={{ y: 0 }}
+      transition={{ duration: 1 }}
+    >
+      Projects
+    </motion.div>
+  );
 };
 
 export default ProjectsPage;
