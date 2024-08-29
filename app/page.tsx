@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Homepage = () => {
   return (
@@ -38,10 +39,10 @@ const Homepage = () => {
           {/* BUTTONS */}
           <div className="flex gap-2 mt-4">
             <button className="bg-black text-white p-2 rounded">
-              View My Works
+              <Link href="/projects">View My Works</Link>
             </button>
             <button className="bg-white text-black p-2 rounded ring-1 ring-black">
-              Contact Me
+              <Link href="/contact">Contact Me</Link>
             </button>
           </div>
         </div>

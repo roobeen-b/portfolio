@@ -5,6 +5,8 @@ import Link from "next/link";
 import React, { useState } from "react";
 import Navlink from "./Navlink";
 import { motion, stagger } from "framer-motion";
+import DarkModeToggle from "./DarkModeToggle";
+import { useTheme } from "next-themes";
 
 const Navbar = () => {
   const navLinks = [
@@ -68,6 +70,7 @@ const Navbar = () => {
   };
 
   const [open, setOpen] = useState(false);
+  const { theme } = useTheme();
 
   return (
     <div className="h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48">
@@ -82,10 +85,22 @@ const Navbar = () => {
       <div className="md:hidden lg:flex xl:w-1/3 xl:justify-center">
         <Link
           href="/"
-          className="bg-black rounded-md p-1 text-sm font-bold flex justify-center items-center"
+          className={`${
+            theme === "light" ? "bg-black" : "bg-white"
+          } rounded-md p-1 text-sm font-bold flex justify-center items-center`}
         >
-          <span className="text-white mr-1">Rubin</span>
-          <span className="bg-white rounded w-16 h-8 flex justify-center items-center">
+          <span
+            className={`${
+              theme === "light" ? "text-white" : "text-black"
+            } mr-1`}
+          >
+            Rubin
+          </span>
+          <span
+            className={`${
+              theme === "light" ? "bg-white" : "bg-black"
+            } rounded w-16 h-8 flex justify-center items-center`}
+          >
             {" "}
             Baidhya
           </span>
@@ -103,6 +118,7 @@ const Navbar = () => {
         <Link href="#">
           <Image src="/facebook.png" alt="Github" width={24} height={24} />
         </Link>
+        <DarkModeToggle />
       </div>
 
       {/* MENU BUTTONS */}

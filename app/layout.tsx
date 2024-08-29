@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import TransitionProvider from "@/components/TransitionProvider";
+import { ThemeProvider } from "next-themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <TransitionProvider>{children}</TransitionProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <TransitionProvider>{children}</TransitionProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
